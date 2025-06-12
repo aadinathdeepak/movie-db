@@ -6,6 +6,7 @@ const MovieCard = ({
   return (
     <div className="movie-card">
       <img
+        className="img-animate"
         src={
           poster_path
             ? `https://image.tmdb.org/t/p/w500/${poster_path}`
