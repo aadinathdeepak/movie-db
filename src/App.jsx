@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Search from "./components/Search";
+import Loader from "./components/Loader";
 
 const API_BASE_URL = "https://api.themoviedb.org/3";
 const API_KEY = import.meta.env.VITE_TMDB_API_KEY;
@@ -18,7 +19,7 @@ const App = () => {
 
   const [movieList, setMovieList] = useState([]);
 
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
 
   const fetchMovies = async () => {
     try {
@@ -43,7 +44,7 @@ const App = () => {
       setMovieList([]);
       return;
     } finally {
-      setIsLoading(true);
+      setIsLoading(false);
     }
   };
   useEffect(() => {
@@ -68,9 +69,9 @@ const App = () => {
           ></Search>
         </header>
         <section className="all-movies">
-          <h2>All Movies</h2>
+          <h2 className="mt-[40px] text-center">All Movies</h2>
           {isLoading ? (
-            <p className="text-white">Loading movies...</p>
+            <Loader></Loader>
           ) : errorMessage ? (
             <p className="text-red-500">{errorMessage}</p>
           ) : (
