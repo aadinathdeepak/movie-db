@@ -74,7 +74,9 @@ const App = () => {
         <section className="all-movies">
           <h2 className="mt-[40px]">All Movies</h2>
           {isLoading ? (
-            <Loader></Loader>
+            <div className="flex justify-center items-center ">
+              <Loader />
+            </div>
           ) : errorMessage ? (
             <p className="text-red-500">{errorMessage}</p>
           ) : (
