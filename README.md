@@ -62,7 +62,7 @@ npm install
 Rename the `.env.example` file to `.env.local`
 
 ```bash
-cp .env.example .env.local
+mv .env.example .env.local
 ```
 
 Then, open `.env.local` and update it with your real TMDb API key
